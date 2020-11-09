@@ -7,6 +7,9 @@
       <p>confirmed: <%= request.confirmed %></p>
       <p>species: <%= request.species %></p>
       <p>description: <%= request.pet_description %></p>
+      <% unless request.confirmed %>
+        <%= link_to 'confirm', confirm_path(request), method: 'post' %>
+      <% end %>
     </li>
   <% end %>
 </ul>
