@@ -1,0 +1,12 @@
+<h1>Editing places</h1>
+
+<%= simple_form_for @place do |f| %>
+        <%= f.input :full_address %>
+        <%= f.input :description %>
+        <%= f.input :photo_url %>
+        <%= f.input :capacity %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+
+<%= link_to 'Show', @place %> |
+<%= link_to 'Back', places_path %>

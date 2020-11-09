@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   post '/my_requests/:id/confirm', to: 'bookings#confirm', as: 'confirm'
   get '/my_requests', to: 'bookings#my_requests'
 
+  resources :places do
+  end
 end
