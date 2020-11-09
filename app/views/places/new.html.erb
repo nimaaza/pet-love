@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>Create a new place</h1>
+
+      <%= simple_form_for @place do |f| %>
+        <%= f.input :full_address %>
+        <%= f.input :description %>
+        <%= f.input :photo_url %>
+        <%= f.input :capacity %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
