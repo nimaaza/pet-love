@@ -1,2 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="banner">
+  <div class="container">
+    <h1>Pet Love</h1>
+    <p>Keeping our furry friends safe & warm</p>
+    <a class="btn btn-flat" href="#">Book a Home</a>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="container">
+  <h1>Some places our pets have enjoyed their stay</h1>
+
+  <div class="row">
+    <% @sample_places.each do |place| %>
+      <div class="col-sm-12 col-md-6 col-lg-3">
+        <%= render 'shared/card', place: place %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
