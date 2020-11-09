@@ -1,0 +1,4 @@
+ <p>fullName <%= @place.full_address %></p> 
+ <p>description <%= @place.description %></p> 
+<%= link_to "edit",  edit_place_path(@place.id)  %>
+<%= link_to "delete",  place_path(@place.id), method: :delete  %>
