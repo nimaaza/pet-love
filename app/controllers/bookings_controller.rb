@@ -7,5 +7,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.confirmed = true
     @booking.save
+
+    redirect_to my_requests_path
   end
 end
