@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get 'my_requests', to: 'bookings#my_requests'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # none-CRUD routes
+  post '/my_requests/:id/confirm', to: 'bookings#confirm', as: 'confirm'
+  get '/my_requests', to: 'bookings#my_requests'
+
 end
