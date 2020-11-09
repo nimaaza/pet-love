@@ -72,7 +72,7 @@ species = %w[cat dog parrot rabbit snake]
     pet_description: Faker::Lorem.sentence,
     species: species.sample,
     place: places.shuffle!.shift,
-    user: users.shift,
+    user: users.first,
   )
 end
 
