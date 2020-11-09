@@ -1,0 +1,12 @@
+<h1>My requests</h1>
+
+<ul>
+  <% @my_requests.each do |request| %>
+    <li>
+      <p>from <%= request.booking_start_date %> to <%= request.booking_end_date %></p>
+      <p>confirmed: <%= request.confirmed %></p>
+      <p>species: <%= request.species %></p>
+      <p>description: <%= request.pet_description %></p>
+    </li>
+  <% end %>
+</ul>
