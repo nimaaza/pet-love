@@ -1,0 +1,8 @@
+<ul>
+<% @places.each do |place| %>
+<li>
+ <p>fullName <%= place.full_address %></p> 
+ <p>description <%= place.description %></p> 
+ </li>
+<% end %>
+</ul>

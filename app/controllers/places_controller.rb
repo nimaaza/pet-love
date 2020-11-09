@@ -1,20 +1,48 @@
 class PlacesController < ApplicationController
     
-    
+    def index 
+        @places = Place.all
+    end
+
     def new
       @place = Place.new
     end
+
+    def show 
+        @place = Place.find(params[:id])
+    end
+
   
     def create
       @place = Place.new(place_params) 
       @place.user = current_user
       if @place.save
-        # redirect_to place_path(@place)
+        redirect_to place_path(@place)
       else
         render 'new'
       end
     end
-  
+
+    def destroy
+        @place = Place.find(params[:id])
+        @place.destroy
+        redirect_to places_url, notice: 'the place was successfully destroyed.'
+    end
+
+    def edit
+        @place = Place.find(params[:id])
+
+    end
+
+    def update
+        @place = Place.find(params[:id])
+        if @place.update(place_params)
+        redirect_to @place, notice: 'places was successfully updated.'
+        else
+        render :edit
+        end
+    end
+
     private
   
     def place_params
