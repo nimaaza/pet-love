@@ -60,6 +60,12 @@ end
 
 seconds_per_day = 24 * 60 * 60
 species = %w[cat dog parrot rabbit snake]
+pet_urls = [
+  'https://exoticanimalsupplies.com/wp-content/uploads/2017/02/pet-rabbit.jpg',
+  'https://www.desicomments.com/wp-content/uploads/2017/01/Beautiful-Pet-Image.jpg',
+  'https://lisawestphotos.com/wp-content/uploads/2017/10/pittsburgh-pet-photographer-tonkinese-cat-3.jpg'
+]
+
 
 3.times do
   first_day = Time.now + rand(1..10) * seconds_per_day
@@ -72,6 +78,7 @@ species = %w[cat dog parrot rabbit snake]
     pet_description: Faker::Lorem.sentence,
     species: species.sample,
     place: places.shuffle!.shift,
+    pet_photo_url: pet_urls.shift,
     user: users.first,
   )
 end
