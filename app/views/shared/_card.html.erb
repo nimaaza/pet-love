@@ -1,10 +1,13 @@
-<div class="card-trip">
-  <img src=<%= place.photo_url %> />
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title here</h2>
-      <p><%= place.description %></p>
+<div class="col-sm-12 col-md-6 col-lg-3">
+  <div class="card-trip">
+    <a href="#" class="card-trip-btn btn">more...</a>
+    <img src=<%= place.photo_url %> />
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= place.title %></h2>
+        <!-- <p><%= place.description %></p> -->
+      </div>
+      <h2 class="card-trip-pricing">£<%= place.price %></h2>
     </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
   </div>
 </div>
