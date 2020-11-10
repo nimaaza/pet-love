@@ -1,12 +1,14 @@
 <div class="col-sm-12 col-md-6 col-lg-3">
   <div class="card-trip">
-    <%= link_to 'more...', place_path(place), class: 'card-trip-btn btn' %>
+    <%= link_to place_path(place), class: 'card-trip-btn' do %>
+      <i class="fas fa-book"></i>
+    <% end %>
 
     <img src=<%= place.photo_url %> />
     <div class="card-trip-infos">
       <div>
         <h2><%= place.title %></h2>
-        <!-- <p><%= place.description %></p> -->
+        <p>hosted by: <%= place.user.first_name %> <%= place.user.last_name %></p>
       </div>
       <h2 class="card-trip-pricing">£<%= place.price %></h2>
     </div>

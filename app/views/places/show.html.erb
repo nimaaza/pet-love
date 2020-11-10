@@ -5,6 +5,7 @@
 <p>Price: <%= @place.price %></p>
 <img src="<%= @place.photo_url %>" alt="place photo">
 
+<%= link_to 'I like it, book the place...', new_booking_path(@place) %>
 <%= link_to "edit",  edit_place_path(@place)  %>
 <%= link_to "delete",  place_path(@place), method: :delete  %>
 
