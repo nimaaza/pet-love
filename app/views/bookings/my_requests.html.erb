@@ -7,6 +7,7 @@
       <p>confirmed: <%= request.confirmed %></p>
       <p>species: <%= request.species %></p>
       <p>pet description: <%= request.pet_description %></p>
+      <p>request from: <%= request.user.first_name %></p>
       <% unless request.confirmed %>
         <%= link_to 'confirm', confirm_path(request), method: 'post' %>
       <% end %>
@@ -26,6 +27,7 @@
       <p>species: <%= booking.species %></p>
       <p>place title: <%= booking.place.title %></p>
       <p>place price: <%= booking.place.price %></p>
+      <p>host: <%= booking.place.user.first_name %></p>
       <% unless booking.confirmed %>
         <%= link_to 'cancel', booking_path(booking), method: 'delete' %>
       <% end %>
