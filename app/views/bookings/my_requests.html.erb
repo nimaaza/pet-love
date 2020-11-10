@@ -27,7 +27,7 @@
       <p>place title: <%= booking.place.title %></p>
       <p>place price: <%= booking.place.price %></p>
       <% unless booking.confirmed %>
-        <%= link_to 'cancel', confirm_path(booking), method: 'post' %>
+        <%= link_to 'cancel', booking_path(booking), method: 'delete' %>
       <% end %>
     </li>
   <% end %>

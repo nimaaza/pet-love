@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   resources :places do
   end
+
+  resources :bookings, only: [:destroy]
 end
