@@ -17,7 +17,7 @@ class PlacesController < ApplicationController
     if @place.save
       redirect_to place_path(@place)
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -43,6 +43,8 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:full_address, :description, :photo_url, :capacity)
+    params.require(:place).permit(:full_address, :description, :photo_url,
+                                  :capacity, :title, :price, :user_id)
   end
 end
+
