@@ -10,13 +10,16 @@ Booking.destroy_all
 Place.destroy_all
 User.destroy_all
 
-nadda = User.new(
+nada = User.new(
   first_name: 'Nada',
   last_name: 'Lakkis',
   email: 'nada@gmail.com',
   password: '123456',
   password_confirmation: '123456'
 )
+
+nada.avatar.attach(io: File.open('app/assets/images/avatars/1.png'),
+                   filename: '1.png', content_type: 'image/png')
 
 karem = User.new(
   first_name: 'Karem',
@@ -26,6 +29,9 @@ karem = User.new(
   password_confirmation: '123456'
 )
 
+karem.avatar.attach(io: File.open('app/assets/images/avatars/2.png'),
+                    filename: '2.png', content_type: 'image/png')
+
 nima = User.new(
   first_name: 'Nima',
   last_name: 'Az',
@@ -33,6 +39,9 @@ nima = User.new(
   password: '123456',
   password_confirmation: '123456'
 )
+
+nima.avatar.attach(io: File.open('app/assets/images/avatars/3.png'),
+                   filename: '3.png', content_type: 'image/png')
 
 charlotte = User.new(
   first_name: 'Charlotte',
@@ -42,6 +51,9 @@ charlotte = User.new(
   password_confirmation: '123456'
 )
 
+charlotte.avatar.attach(io: File.open('app/assets/images/avatars/4.png'),
+                        filename: '4.png', content_type: 'image/png')
+
 rayan = User.new(
   first_name: 'Rayan',
   last_name: 'Castro',
@@ -49,6 +61,9 @@ rayan = User.new(
   password: '123456',
   password_confirmation: '123456'
 )
+
+rayan.avatar.attach(io: File.open('app/assets/images/avatars/5.png'),
+                    filename: '5.png', content_type: 'image/png')
 
 tarig = User.new(
   first_name: 'Tarig',
@@ -58,15 +73,39 @@ tarig = User.new(
   password_confirmation: '123456'
 )
 
-nadda.save!
+tarig.avatar.attach(io: File.open('app/assets/images/avatars/6.png'),
+                    filename: '6.png', content_type: 'image/png')
+
+nada.save!
 karem.save!
 nima.save!
 charlotte.save!
 rayan.save!
 tarig.save!
 
-users = [karem, nadda, nima, charlotte, rayan, tarig]
+users = [karem, nada, nima, charlotte, rayan, tarig]
 
+
+19.times do |i|
+  avatar_path = "app/assets/images/avatars/#{6 + i}.png"
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  email = "#{first_name.downcase}#{i}@gmail.com"
+
+  user = User.new(
+    first_name: first_name,
+    last_name: last_name,
+    email: email,
+    password: '123456',
+    password_confirmation: '123456'
+  )
+
+  user.avatar.attach(io: File.open(avatar_path),
+                    filename: "#{6 + i}.png",
+                    content_type: 'image/png')
+  user.save!
+  users << user
+end
 
 places = []
 place_urls = [
@@ -94,7 +133,7 @@ place_urls = [
 end
 
 seconds_per_day = 24 * 60 * 60
-users = [karem, nadda, nima, charlotte, rayan, tarig]
+users = [karem, nada, nima, charlotte, rayan, tarig]
 species = %w[rabbit dog cat parrot snake]
 pet_urls = [
   'https://exoticanimalsupplies.com/wp-content/uploads/2017/02/pet-rabbit.jpg',
