@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get '/my_requests', to: 'bookings#my_requests'
 
   resources :places do
+    member do
+      resources :bookings, only: [:new, :create]
+    end
   end
 
   resources :bookings, only: [:destroy]
