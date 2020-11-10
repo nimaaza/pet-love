@@ -6,7 +6,9 @@
       <h2>hosted by: <strong>
         <%= @place.user.first_name.capitalize %>
         <%= @place.user.last_name.capitalize %>
-      </strong></h2>
+      </strong>
+      <i class="fas fa-heart host"></i>
+    </h2>
 
       <%= simple_form_for @booking do |f| %>
         <%= f.input :pet_description %>

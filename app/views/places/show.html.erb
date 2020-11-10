@@ -1,13 +1,22 @@
-<p>Title: <%= @place.title %></p>
-<p>Address: <%= @place.full_address %></p>
-<p>Description: <%= @place.description %></p>
-<p>Capacity: <%= @place.capacity %></p>
-<p>Price: <%= @place.price %></p>
-<img src="<%= @place.photo_url %>" alt="place photo">
+<div class="container">
+  <div class="row">
+    <div>
+      <p><strong>Title:</strong> <%= @place.title %></p>
+      <p><strong>Address:</strong> <%= @place.full_address %></p>
+      <p><strong>Description:</strong> <%= @place.description %></p>
+      <p><strong>Capacity:</strong> <%= @place.capacity %></p>
+      <p><strong>Price:</strong> €<%= @place.price %></p>
+    </div>
 
-<%= link_to 'I like it, book the place...', new_booking_path(@place) %>
-<%= link_to "edit",  edit_place_path(@place)  %>
-<%= link_to "delete",  place_path(@place), method: :delete  %>
+    <img src="<%= @place.photo_url %>" alt="place photo" margin="40px" height="400px">
+  </div>
+
+  <%= link_to 'I like it, book the place...', new_booking_path(@place), class: 'btn btn-success m-2' %>
+</div>
 
 
-
+<!-- <div>
+<p></p> <%= link_to "edit",  edit_place_path(@place), class: 'btn'  %>
+<p></p> <%= link_to "delete",  place_path(@place), method: :delete, class: 'btn'  %>
+</div>
+ -->
