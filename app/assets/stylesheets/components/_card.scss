@@ -3,6 +3,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 20px 4px;
+  border-radius: 4px;
 }
 
 .card-trip > img {
@@ -23,6 +24,14 @@
   margin: 0;
 }
 
+.card-trip-btn {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  padding: 4px;
+  background-color: white;
+  border-radius: 4px;
+}
 
 .card-trip .card-trip-infos {
   padding: 16px;
