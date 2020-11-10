@@ -43,7 +43,7 @@ users = [nadda, karem, nima]
 
 places = []
 
-10.times do
+3.times do
   place = Place.new(
     full_address: Faker::Address.full_address,
     description: Faker::Lorem.sentence,
@@ -51,7 +51,7 @@ places = []
     price: rand(100..500),
     photo_url: 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg',
     capacity: rand(1..5),
-    user: users.sample,
+    user: users.shuffle!.shift,
   )
 
   place.save!
