@@ -64,6 +64,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 4px;
 }
 
 .card-product img {
@@ -90,8 +91,13 @@
   padding: 16px;
 }
 
+.card-product-btn {
+  position: absolute;
+  font-size: 20px;
+  color: black;
+}
 
-//this is css for pending requests 
+//this is css for pending requests
 .card-product-pending {
   overflow: hidden;
   height: 170px;
