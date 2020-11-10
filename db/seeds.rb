@@ -79,7 +79,7 @@ pet_urls = [
     species: species.sample,
     place: places.shuffle!.shift,
     pet_photo_url: pet_urls.shift,
-    user: users.first,
+    user: users.shuffle!.shift
   )
 end
 
