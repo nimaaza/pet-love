@@ -1,8 +1,18 @@
-<ul>
+<!-- <ul>
 <% @places.each do |place| %>
 <li>
- <p>fullName <%= place.full_address %></p> 
- <p>description <%= place.description %></p> 
+ <p>fullName <%= place.full_address %></p>
+ <p>description <%= place.description %></p>
  </li>
 <% end %>
-</ul>
+</ul> -->
+
+<div class="container">
+  <h1>Some places our pets have enjoyed their stay</h1>
+
+  <div class="row">
+    <% @places.each do |place| %>
+        <%= render 'shared/card', place: place %>
+    <% end %>
+  </div>
+</div>
