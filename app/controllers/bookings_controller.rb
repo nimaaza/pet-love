@@ -37,6 +37,10 @@ class BookingsController < ApplicationController
     @booking.confirmed = true
     @booking.save
 
+    # destroy all pending requests from @booking.user
+    pending_bookings = Booking.where(user: @booking.user, confirmed: false)
+    pending_bookings.each { |booking| booking.destroy }
+
     redirect_to my_requests_path
   end
 
