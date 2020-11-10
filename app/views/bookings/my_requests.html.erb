@@ -1,4 +1,4 @@
-<h1>My requests</h1>
+<h1>Requests sent to me</h1>
 
 <ul>
   <% @my_requests.each do |request| %>
@@ -6,9 +6,28 @@
       <p>from <%= request.booking_start_date %> to <%= request.booking_end_date %></p>
       <p>confirmed: <%= request.confirmed %></p>
       <p>species: <%= request.species %></p>
-      <p>description: <%= request.pet_description %></p>
+      <p>pet description: <%= request.pet_description %></p>
       <% unless request.confirmed %>
         <%= link_to 'confirm', confirm_path(request), method: 'post' %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<hr><br>
+
+<h1>My pending bookings</h1>
+
+<ul>
+  <% @my_bookings.each do |booking| %>
+    <li>
+      <p>from <%= booking.booking_start_date %> to <%= booking.booking_end_date %></p>
+      <p>confirmed: <%= booking.confirmed %></p>
+      <p>species: <%= booking.species %></p>
+      <p>place title: <%= booking.place.title %></p>
+      <p>place price: <%= booking.place.price %></p>
+      <% unless booking.confirmed %>
+        <%= link_to 'cancel', confirm_path(booking), method: 'post' %>
       <% end %>
     </li>
   <% end %>

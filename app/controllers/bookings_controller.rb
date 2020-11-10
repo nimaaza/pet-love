@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def my_requests
-    @my_requests = Booking.where(user: current_user)
+    @my_requests = Booking.where(place: current_user.place)
+    @my_bookings = Booking.where(user: current_user)
   end
 
   def confirm
