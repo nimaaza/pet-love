@@ -94,6 +94,7 @@ place_urls = [
 end
 
 seconds_per_day = 24 * 60 * 60
+users = [karem, nadda, nima, charlotte, rayan, tarig]
 species = %w[rabbit dog cat parrot snake]
 pet_urls = [
   'https://exoticanimalsupplies.com/wp-content/uploads/2017/02/pet-rabbit.jpg',
@@ -105,6 +106,7 @@ pet_urls = [
 3.times do
   first_day = Time.now + rand(1..10) * seconds_per_day
   last_day = first_day + rand(1..5) * seconds_per_day
+  user = users.shift
 
   Booking.create(
     booking_start_date: first_day,
@@ -114,7 +116,7 @@ pet_urls = [
     species: species.shift,
     place: places.shuffle!.shift,
     pet_photo_url: pet_urls.shift,
-    user: users.shuffle!.shift
+    user: user
   )
 end
 
