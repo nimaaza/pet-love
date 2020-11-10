@@ -8,22 +8,22 @@
   <% @my_requests.each do |request| %>
     <li>
 
-      
+
       <p><strong>from <%= request.booking_start_date %> to <%= request.booking_end_date %></p></strong>
       <p><strong>confirmed: <%= request.confirmed %></p></strong>
       <p><strong>species: <%= request.species %></p></strong>
       <p><strong>pet description: <%= request.pet_description %></p></strong>
 
 
-      <p>from <%= request.booking_start_date %> to <%= request.booking_end_date %></p>
-      <p>confirmed: <%= request.confirmed %></p>
-      <p>species: <%= request.species %></p>
-      <p>pet description: <%= request.pet_description %></p>
-      <p>request from: <%= request.user.first_name %></p>
+      <!-- <p>from <%= request.booking_start_date %> to <%= request.booking_end_date %></p> -->
+      <!-- <p>confirmed: <%= request.confirmed %></p> -->
+      <!-- <p>species: <%= request.species %></p> -->
+      <!-- <p>pet description: <%= request.pet_description %></p> -->
+      <!-- <p>request from: <%= request.user.first_name %></p> -->
 
 
       <% unless request.confirmed %>
-        <%# <%= link_to 'confirm', confirm_path(request), method: 'post' %> 
+        <%# <%= link_to 'confirm', confirm_path(request), method: 'post' %>
         <%= link_to "Confirm", confirm_path(request), method: 'post' , class: "btn btn-primary" %>
       <% end %>
     </li>
@@ -44,7 +44,7 @@
   <% @my_bookings.each do |booking| %>
     <li>
 
-      
+
       <p><strong>from <%= booking.booking_start_date %> to <%= booking.booking_end_date %></p></strong>
       <p><strong>confirmed: <%= booking.confirmed %></p></strong>
       <p><strong>species: <%= booking.species %></p></strong>
@@ -52,12 +52,12 @@
       <p><strong>place price: <%= booking.place.price %></p></strong>
 
 
-      <p>from <%= booking.booking_start_date %> to <%= booking.booking_end_date %></p>
-      <p>confirmed: <%= booking.confirmed %></p>
-      <p>species: <%= booking.species %></p>
-      <p>place title: <%= booking.place.title %></p>
-      <p>place price: <%= booking.place.price %></p>
-      <p>host: <%= booking.place.user.first_name %></p>
+      <!-- <p>from <%= booking.booking_start_date %> to <%= booking.booking_end_date %></p> -->
+      <!-- <p>confirmed: <%= booking.confirmed %></p> -->
+      <!-- <p>species: <%= booking.species %></p> -->
+      <!-- <p>place title: <%= booking.place.title %></p> -->
+      <!-- <p>place price: <%= booking.place.price %></p> -->
+      <!-- <p>host: <%= booking.place.user.first_name %></p> -->
 
 
       <% unless booking.confirmed %>
