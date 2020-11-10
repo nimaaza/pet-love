@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Pet Love</h1>
     <p>Keeping our furry friends safe & warm</p>
-    <a class="btn btn-flat" href="#">Book a Home</a>
+    <%= link_to 'Book a Home', places_path, class: 'btn btn-flat' %>
   </div>
 </div>
 
@@ -14,5 +14,7 @@
         <%= render 'shared/card', place: place %>
     <% end %>
   </div>
+
+  <%= link_to 'See all our places', places_path, class: 'btn btn-flat' %>
 </div>
 
