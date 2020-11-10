@@ -34,22 +34,57 @@ nima = User.new(
   password_confirmation: '123456'
 )
 
+charlotte = User.new(
+  first_name: 'Charlotte',
+  last_name: 'Margus',
+  email: 'charlotte@gmail.com',
+  password: '123456',
+  password_confirmation: '123456'
+)
+
+rayan = User.new(
+  first_name: 'Rayan',
+  last_name: 'Castro',
+  email: 'rayan@gmail.com',
+  password: '123456',
+  password_confirmation: '123456'
+)
+
+tarig = User.new(
+  first_name: 'Tarig',
+  last_name: 'Bouazzati',
+  email: 'tarig@gmail.com',
+  password: '123456',
+  password_confirmation: '123456'
+)
+
 nadda.save!
 karem.save!
 nima.save!
+charlotte.save!
+rayan.save!
+tarig.save!
 
-users = [nadda, karem, nima]
+users = [karem, nadda, nima, charlotte, rayan, tarig]
 
 
 places = []
+place_urls = [
+  'https://homeinner.com/wp-content/uploads/2010/04/Modern-4-bhk-Kerala-Home-Design-by-Shameem-730x487-1-1.jpg',
+  'http://i.ytimg.com/vi/rrlxP5rmHxI/hqdefault.jpg',
+  'http://www.keralahouseplanner.com/wp-content/uploads/2011/08/beautiful-home-elevation-01.jpg',
+  'https://hometone.com/wp-content/uploads/2012/07/beautiful_home_bxav2.jpg',
+  'https://data.whicdn.com/images/67394055/original.jpg',
+  'https://i.ytimg.com/vi/QV__0XWGQuU/maxresdefault.jpg',
+]
 
-3.times do
+6.times do
   place = Place.new(
     full_address: Faker::Address.full_address,
     description: Faker::Lorem.sentence,
     title: Faker::FunnyName.three_word_name,
     price: rand(100..500),
-    photo_url: 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg',
+    photo_url: place_urls.shuffle!.shift,
     capacity: rand(1..5),
     user: users.shuffle!.shift,
   )
@@ -59,7 +94,7 @@ places = []
 end
 
 seconds_per_day = 24 * 60 * 60
-species = %w[cat dog parrot rabbit snake]
+species = %w[rabbit dog cat parrot snake]
 pet_urls = [
   'https://exoticanimalsupplies.com/wp-content/uploads/2017/02/pet-rabbit.jpg',
   'https://www.desicomments.com/wp-content/uploads/2017/01/Beautiful-Pet-Image.jpg',
@@ -76,7 +111,7 @@ pet_urls = [
     booking_end_date: last_day,
     confirmed: false,
     pet_description: Faker::Lorem.sentence,
-    species: species.sample,
+    species: species.shift,
     place: places.shuffle!.shift,
     pet_photo_url: pet_urls.shift,
     user: users.shuffle!.shift
