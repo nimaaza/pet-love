@@ -1,4 +1,12 @@
- <p>fullName <%= @place.full_address %></p> 
- <p>description <%= @place.description %></p> 
-<%= link_to "edit",  edit_place_path(@place.id)  %>
-<%= link_to "delete",  place_path(@place.id), method: :delete  %>
+<p>Title: <%= @place.title %></p>
+<p>Address: <%= @place.full_address %></p>
+<p>Description: <%= @place.description %></p>
+<p>Capacity: <%= @place.capacity %></p>
+<p>Price: <%= @place.price %></p>
+<img src="<%= @place.photo_url %>" alt="place photo">
+
+<%= link_to "edit",  edit_place_path(@place)  %>
+<%= link_to "delete",  place_path(@place), method: :delete  %>
+
+
+
