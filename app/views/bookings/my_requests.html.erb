@@ -1,34 +1,48 @@
+
 <h1>Requests sent to me</h1>
 
-<ul>
+<div class="card-product">
+  <img src="https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+  <div class="card-product-infos">
+<ul class= "card-list">
   <% @my_requests.each do |request| %>
     <li>
-      <p>from <%= request.booking_start_date %> to <%= request.booking_end_date %></p>
-      <p>confirmed: <%= request.confirmed %></p>
-      <p>species: <%= request.species %></p>
-      <p>pet description: <%= request.pet_description %></p>
+      <p><strong>from <%= request.booking_start_date %> to <%= request.booking_end_date %></p></strong>
+      <p><strong>confirmed: <%= request.confirmed %></p></strong>
+      <p><strong>species: <%= request.species %></p></strong>
+      <p><strong>pet description: <%= request.pet_description %></p></strong>
       <% unless request.confirmed %>
-        <%= link_to 'confirm', confirm_path(request), method: 'post' %>
+        <%# <%= link_to 'confirm', confirm_path(request), method: 'post' %> 
+        <%= link_to "Confirm", confirm_path(request), method: 'post' , class: "btn btn-primary" %>
       <% end %>
     </li>
   <% end %>
 </ul>
+</div>
+</div>
 
 <hr><br>
 
+
 <h1>My pending bookings</h1>
 
-<ul>
+<div class="card-product-pending">
+  <img src="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+  <div class="card-product-infos">
+<ul class= "card-list">
   <% @my_bookings.each do |booking| %>
     <li>
-      <p>from <%= booking.booking_start_date %> to <%= booking.booking_end_date %></p>
-      <p>confirmed: <%= booking.confirmed %></p>
-      <p>species: <%= booking.species %></p>
-      <p>place title: <%= booking.place.title %></p>
-      <p>place price: <%= booking.place.price %></p>
+      <p><strong>from <%= booking.booking_start_date %> to <%= booking.booking_end_date %></p></strong>
+      <p><strong>confirmed: <%= booking.confirmed %></p></strong>
+      <p><strong>species: <%= booking.species %></p></strong>
+      <p><strong>place title: <%= booking.place.title %></p></strong>
+      <p><strong>place price: <%= booking.place.price %></p></strong>
       <% unless booking.confirmed %>
-        <%= link_to 'cancel', booking_path(booking), method: 'delete' %>
+        <%= link_to 'cancel', booking_path(booking), method: 'delete', class: "btn btn-primary"%>
       <% end %>
     </li>
   <% end %>
 </ul>
+</div>
+</div>
+
