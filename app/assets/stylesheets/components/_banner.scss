@@ -8,16 +8,16 @@
 .banner h1 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 80px;
+  text-shadow: 0 0 4px rgba(0,0,0,0.8);
+  font-size: 84px;
   font-weight: bold;
 }
 
 .banner p {
-  font-size: 20px;
+  font-size: 24px;
   color: white;
   opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 0 0 8px black;
   margin-top: 20px;
 }
 
@@ -25,12 +25,11 @@
   background: white;
   color: #4c4139;
   margin-top: 90px;
-  font-weight: bold;
   border: 1px solid lightgray;
   box-shadow: 0 0 4px gray;
   border-radius: 4px;
 }
 
 .btn-flat:hover {
-  background: #c1c1b6;
+  background-color: $garfieldy-color;
 }
