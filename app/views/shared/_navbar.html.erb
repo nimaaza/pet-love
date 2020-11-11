@@ -1,3 +1,12 @@
+<% if user_signed_in? %>
+  <% @badge_number = Booking.where(place: current_user.place, confirmed: false).size %>
+  <% if @badge_number < 10 %>
+    <% @badge_number = @badge_number.to_s %>
+  <% else %>
+    <% @badge_number = "+{@badge_number}" %>
+  <% end %>
+<% end %>
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "https://res.cloudinary.com/dmpsphfxn/image/upload/v1605028777/pet-love/app-assets/logo_ucwqnv.jpg" %>
@@ -12,22 +21,24 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", root_path, class: "nav-link" %>
+          <%= link_to root_path, class: "nav-link" do %>
+            <i class="fas fa-home"></i>
+          <% end %>
         </li>
-        <li class="nav-item active">
-          <%= link_to "My Requests (#{current_user.first_name})", my_requests_path, class: "nav-link" %>
-        </li>
-        <% if Place.where(user: current_user).empty? %>
-          <li class="nav-item active">
-            <%= link_to "Add a place", new_place_path, class: "nav-link" %>
-          </li>
-        <% end %>
         <li class="nav-item dropdown">
-          <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <div class="navbar-user-avatar">
+            <p class="navbar-user-badge"><%= @badge_number unless @badge_number.empty? %></p>
+            <%= cl_image_tag current_user.avatar.key,
+              class: "avatar dropdown-toggle", id: "navbarDropdown",
+              data: { toggle: "dropdown" }, 'aria-haspopup': true,
+              'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <%= link_to "My Requests (#{current_user.first_name})", my_requests_path, class: "dropdown-item" %>
+                <% if Place.where(user: current_user).empty? %>
+                  <%= link_to "Add a place", new_place_path, class: "dropdown-item" %>
+                <% end %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
           </div>
         </li>
       <% else %>

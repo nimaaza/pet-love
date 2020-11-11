@@ -10,3 +10,24 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-user-avatar {
+  position: relative;
+}
+
+.navbar-user-badge {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  color: white;
+  background-color: red;
+  border-radius: 50%;
+  font-size: 4px;
+  padding: 0 4px;
+  font-size: 10px;
+}
+
+.fas.fa-home {
+  color: blue;
+  margin: 0 20px;
+}
