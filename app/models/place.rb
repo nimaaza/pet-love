@@ -8,4 +8,11 @@ class Place < ApplicationRecord
   has_many :bookings
   belongs_to :user
   has_one_attached :photo
+
+  include PgSearch::Model
+  pg_search_scope :search_address,
+                  against: [:full_address, :title],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
