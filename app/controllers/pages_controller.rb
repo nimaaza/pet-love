@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
   def home
-    @sample_places = Place.all.sample(4)
+    places = Place.all.shuffle
+    @sample_places1 = places.shift(4)
+    @sample_places2 = places.shift
+    @sample_places3 = places.shift(2)
   end
 end
