@@ -1,3 +1,6 @@
+$garfieldy-orange: #FF6A00;
+$garfieldy-orange-background: #FFF9DE;
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -13,4 +16,17 @@
 @import "pages/index";
 @import "components/navbar";
 @import "components/footer";
-@import "components/card"
+@import "components/card";
+
+.fas.host {
+  color: red;
+}
+
+body {
+  background-color: $garfieldy-orange-background;
+}
+
+#container-home {
+  margin: 40px auto;
+  padding: 80px;
+}
