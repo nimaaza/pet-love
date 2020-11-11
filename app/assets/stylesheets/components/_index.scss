@@ -1,4 +1,5 @@
-$garfieldy-orange: #ee6c18;
+$garfieldy-orange: #FF6A00;
+$garfieldy-orange-background: #FFF9DE;
 
 // Import your components CSS files here.
 @import "alert";
@@ -10,3 +11,6 @@ $garfieldy-orange: #ee6c18;
   color: red;
 }
 
+body {
+  background-color: $garfieldy-orange-background;
+}

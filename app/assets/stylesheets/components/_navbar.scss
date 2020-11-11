@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $garfieldy-orange-background;
+  border-bottom: 1px solid $garfieldy-orange;
 }
 
 .navbar-lewagon .navbar-collapse {
