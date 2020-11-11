@@ -39,6 +39,7 @@ body {
   box-shadow: 0 0 4px $garfieldy-orange;
   background-color: white;
   margin: auto 100px;
+  box-sizing: content-box;
 }
 
 .form-control {
