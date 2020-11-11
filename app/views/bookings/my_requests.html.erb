@@ -1,18 +1,56 @@
-<%= render 'shared/requests_pane',
-  heading: 'Requests sent to me',
-  message: 'Oh, no! No pet wants to spend time with you :(',
-  bookings: @my_requests,
-  for_host: true  %>
+<div class="container">
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Requests sent to me
+          </button>
+        </h2>
+      </div>
 
-<%= render 'shared/requests_pane',
-  heading: 'My pending bookings',
-  message: 'none at this time',
-  bookings: @my_bookings,
-  for_host: false  %>
-
-<%= render 'shared/requests_pane',
-  heading: 'My ongoing bookings',
-  message: 'none at this time',
-  bookings: @ongoing_bookings,
-  for_host: false  %>
-
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <%= render 'shared/requests_pane',
+            message: 'Oh, no! No pet wants to spend time with you :(',
+            bookings: @my_requests,
+            for_host: true  %>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            My pending bookings
+          </button>
+        </h2>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          <%= render 'shared/requests_pane',
+            message: 'none at this time',
+            bookings: @my_bookings,
+            for_host: false  %>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            My ongoing bookings
+          </button>
+        </h2>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+          <%= render 'shared/requests_pane',
+            message: 'none at this time',
+            bookings: @ongoing_bookings,
+            for_host: false  %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
