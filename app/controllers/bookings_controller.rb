@@ -29,7 +29,12 @@ class BookingsController < ApplicationController
   # non-CRUD actions
   def my_requests
     @my_requests = Booking.where(place: current_user.place, confirmed: false)
-    @my_bookings = Booking.where(user: current_user)
+    @my_bookings = Booking.where(user: current_user, confirmed: false)
+    @ongoing_bookings = Booking
+                        .where(user: current_user, confirmed: true)
+                        .select do |booking|
+                          booking.booking_end_date > Time.now
+                        end
   end
 
   def confirm
