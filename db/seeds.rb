@@ -6,9 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts 'cleaning old records...'
+
 Booking.destroy_all
 Place.destroy_all
 User.destroy_all
+
+puts 'creating users with custom avatars uploaded to cloudinary (takes time)...'
 
 nada = User.new(
   first_name: 'Nada',
@@ -85,8 +89,11 @@ tarig.save!
 
 users = [karem, nada, nima, charlotte, rayan, tarig]
 
+print 'please be patient'
 
 19.times do |i|
+  print '.'
+
   avatar_path = "app/assets/images/avatars/#{6 + i}.png"
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
@@ -106,6 +113,10 @@ users = [karem, nada, nima, charlotte, rayan, tarig]
   user.save!
   users << user
 end
+
+puts ''
+
+puts 'creating and saving places...'
 
 places = []
 place_urls = [
@@ -177,3 +188,5 @@ end
 #     user: user
 #   )
 # end
+
+puts 'all done...'
