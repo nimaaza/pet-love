@@ -61,6 +61,7 @@ class BookingsController < ApplicationController
                   "booking_start_date(3i)",
                   "booking_end_date(1i)",
                   "booking_end_date(2i)",
-                  "booking_end_date(3i)")
+                  "booking_end_date(3i)",
+                  "photo")
   end
 end
