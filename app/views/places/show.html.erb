@@ -12,7 +12,6 @@
       <%= link_to 'Book Now', new_booking_path(@place), class: 'btn btn-primary m-2' %>
     </div>
     <%= cl_image_tag @place.photo.key, height: 400, margin: 40, crop: :fill %>
-    <img src="<%= @place.photo_url %>" alt="place photo" >
   </div>
 </div>
 

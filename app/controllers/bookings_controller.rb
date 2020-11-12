@@ -11,6 +11,10 @@ class BookingsController < ApplicationController
     booking.confirmed = false
     booking.user = current_user
     booking.place = Place.find(params[:id])
+    # booking.pet_photo.attach(io: params["pet_photo"], filename: 'tttt.pic', content_type: 'image/png')
+    # booking.pet_photo.attach(params["pet_photo"])
+
+    # raise
 
     if booking.save!
       redirect_to my_requests_path
@@ -53,15 +57,14 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking)
-          .permit("pet_description",
-                  "species",
-                  "pet_photo_url",
+          .permit(:pet_description,
+                  :species,
                   "booking_start_date(1i)",
                   "booking_start_date(2i)",
                   "booking_start_date(3i)",
                   "booking_end_date(1i)",
                   "booking_end_date(2i)",
                   "booking_end_date(3i)",
-                  "photo")
+                  :pet_photo)
   end
 end

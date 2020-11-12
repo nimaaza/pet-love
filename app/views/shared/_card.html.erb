@@ -3,7 +3,7 @@
     <i class="fas fa-book"></i>
   <% end %>
 
-  <%= cl_image_tag place.photo.key, crop: :fill %>
+  <%= cl_image_tag place.photo.key, height: 200, crop: :fill %>
   <div class="card-trip-infos">
     <div>
       <h2><%= place.title %></h2>

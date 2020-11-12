@@ -7,15 +7,15 @@
   <div class="row">
     <% bookings.each do |booking| %>
         <div class="col m-4">
-          <div class="card-product">
+          <div class="card-dashboard">
 
-            <% if for_host %>
-              <%= cl_image_tag booking.pet_photo.key, crop: :fill %>
-            <% else %>
-              <%= cl_image_tag booking.place.photo.key, crop: :fill %>
+            <% if for_host && booking.pet_photo.attached? %>
+              <%= cl_image_tag booking.pet_photo.key, height: 150, crop: :fill %>
+            <% elsif booking.place.photo.attached? %>
+              <%= cl_image_tag booking.place.photo.key, height: 150, crop: :fill %>
             <% end %>
 
-            <div class="card-product-infos">
+            <div class="card-product-dashboard-infos">
               <ul class="card-list">
                 <li>
                   <p><strong>from</strong> <%= booking.booking_start_date %> to <%= booking.booking_end_date %></p>
@@ -23,11 +23,11 @@
                   <p><strong>pet description:</strong> <%= booking.pet_description %></p>
 
                   <% if for_host && !booking.confirmed %>
-                    <%= link_to confirm_path(booking), method: 'post', class: "card-product-btn" do%>
+                    <%= link_to confirm_path(booking), method: 'post', class: "card-product-dashboard-btn" do%>
                       <i class="fas fa-check-circle"></i>
                     <% end %>
                   <% elsif !booking.confirmed %>
-                    <%= link_to booking_path(booking), method: 'delete', class: "card-product-btn" do%>
+                    <%= link_to booking_path(booking), method: 'delete', class: "card-product-dashboard-btn" do%>
                       <i class="far fa-window-close"></i>
                     <% end %>
                   <% end %>
