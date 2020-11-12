@@ -8,7 +8,7 @@
 <% end %>
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "petlove_newlogo.png" %>
   <% end %>
 
@@ -33,7 +33,7 @@
               data: { toggle: "dropdown" }, 'aria-haspopup': true,
               'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <%= link_to "My Requests (#{current_user.first_name})", my_requests_path, class: "dropdown-item" %>
+                <%= link_to "Dashboard (#{current_user.first_name})", my_requests_path, class: "dropdown-item" %>
                 <% if Place.where(user: current_user).empty? %>
                   <%= link_to "Add a place", new_place_path, class: "dropdown-item" %>
                 <% end %>
