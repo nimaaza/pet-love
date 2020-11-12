@@ -1,5 +1,9 @@
 <div class="container">
-  <h1>Some places our pets have enjoyed their stay</h1>
+
+  <form action="/places" method="get">
+    <input type="text" name="query" placeholder="Search for host, full address...">
+    <input type="submit" value="Search">
+  </form>
 
   <div class="row">
     <% @places.each do |place| %>
