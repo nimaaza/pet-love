@@ -1,67 +1,66 @@
-<div class="div-background">
-  <%= image_tag "dog-1.jpg", class: 'background-image' %>
-<div class="container mt-5 mb-5">
-  <div class="div-box">
-    <div class="accordion m-5" id="accordionExample">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h2 class="mb-0">
-            <button class="btn btn-link btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              <h2>Pets who want to enjoy their time with me
-                <%= "(#{@my_requests.size})" unless @my_requests.size.zero? %>
-              </h2>
-            </button>
-          </h2>
-        </div>
-
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-          <div class="card-body">
-            <%= render 'shared/requests_pane',
-              message: 'Oh, no! No pet wants to spend time with you :(',
-              bookings: @my_requests,
-              for_host: true  %>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h2 class="mb-0">
-            <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              <h2>Places where my pets would like to visit
-                <%= "(#{@my_bookings.size})" unless @my_bookings.size.zero? %>
-              </h2>
-            </button>
-          </h2>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-          <div class="card-body">
-            <%= render 'shared/requests_pane',
-              message: 'none at this time',
-              bookings: @my_bookings,
-              for_host: false  %>
-          </div>
-        </div>
-      </div>
-      <% if @ongoing_bookings.size.positive? %>
+<div class="div-background" style="background-image: url(<%= asset_url('dog-1') %>);">
+  <div class="container">
+    <div class="div-box">
+      <div class="accordion m-5" id="accordionExample">
         <div class="card">
-          <div class="card-header" id="headingThree">
+          <div class="card-header" id="headingOne">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                <h2>The place where my pets are enjoying their time</h2>
+              <button class="btn btn-link btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <h2>Pets who want to enjoy their time with me
+                  <%= "(#{@my_requests.size})" unless @my_requests.size.zero? %>
+                </h2>
               </button>
             </h2>
           </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <%= render 'shared/requests_pane',
+                message: 'Oh, no! No pet wants to spend time with you :(',
+                bookings: @my_requests,
+                for_host: true  %>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <h2>Places where my pets would like to visit
+                  <%= "(#{@my_bookings.size})" unless @my_bookings.size.zero? %>
+                </h2>
+              </button>
+            </h2>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
               <%= render 'shared/requests_pane',
                 message: 'none at this time',
-                bookings: @ongoing_bookings,
+                bookings: @my_bookings,
                 for_host: false  %>
             </div>
           </div>
         </div>
-      <% end %>
+        <% if @ongoing_bookings.size.positive? %>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <h2>The place where my pets are enjoying their time</h2>
+                </button>
+              </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+                <%= render 'shared/requests_pane',
+                  message: 'none at this time',
+                  bookings: @ongoing_bookings,
+                  for_host: false  %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 </div>

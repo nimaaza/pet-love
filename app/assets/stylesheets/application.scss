@@ -67,16 +67,21 @@ body {
 }
 
 .div-background {
-  display: grid;
-  align-items: center;
-  align-content: center;
-  position: relative;
   background-size: cover;
-  background-position: center;
+  width: 100vw;
+  height: 100vw;
+  padding: 80px;
 
-  .background-image {
-    position: absolute;
-    z-index: -10;
-    width: 100%;
-  }
+  // display: grid;
+  // align-items: center;
+  // align-content: center;
+  // position: relative;
+  // background-size: cover;
+  // background-position: center;
+
+  // .background-image {
+  //   position: absolute;
+  //   z-index: -10;
+  //   width: 100%;
+  // }
 }
