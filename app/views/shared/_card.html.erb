@@ -3,7 +3,7 @@
     <i class="fas fa-book"></i>
   <% end %>
 
-  <img src=<%= place.photo_url %> />
+  <%= cl_image_tag place.photo.key, crop: :fill %>
   <div class="card-trip-infos">
     <div>
       <h2><%= place.title %></h2>

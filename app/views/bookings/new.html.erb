@@ -20,7 +20,7 @@
           <%= simple_form_for @booking do |f| %>
             <%= f.input :pet_description %>
             <%= f.input :species %>
-            <%= f.input :pet_photo_url %>
+            <%= f.input :pet_photo, as: :file %>
             <%= f.input :booking_start_date, as: :date %>
             <%= f.input :booking_end_date, as: :date %>
             <%= f.button :submit, class: 'form-btn form-control' %>

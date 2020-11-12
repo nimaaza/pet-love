@@ -10,9 +10,9 @@
           <div class="card-product">
 
             <% if for_host %>
-              <img src="<%= booking.pet_photo_url %>" alt="">
+              <%= cl_image_tag booking.pet_photo.key, crop: :fill %>
             <% else %>
-              <img src="<%= booking.place.photo_url %>" alt="">
+              <%= cl_image_tag booking.place.photo.key, crop: :fill %>
             <% end %>
 
             <div class="card-product-infos">

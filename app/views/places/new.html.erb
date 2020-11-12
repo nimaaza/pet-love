@@ -7,7 +7,7 @@
         <%= f.input :title %>
         <%= f.input :full_address %>
         <%= f.input :description %>
-        <%= f.input :photo_url %>
+        <%= f.input :photo, as: :file %>
         <%= f.input :capacity %>
         <%= f.input :price %>
         <%= f.button :submit, class: 'btn btn-primary' %>

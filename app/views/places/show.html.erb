@@ -8,7 +8,7 @@
       <p><strong>Price:</strong> €<%= @place.price %></p>
     </div>
 
-    <img src="<%= @place.photo_url %>" alt="place photo" margin="40px" height="400px">
+    <%= cl_image_tag @place.photo.key, height: 400, margin: 40, crop: :fill %>
   </div>
 
   <%= link_to 'I like it, book the place...', new_booking_path(@place), class: 'btn btn-success m-2' %>
