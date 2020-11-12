@@ -1,0 +1,41 @@
+<!-- message, bookings, for_host -->
+<div class="container mt-5 mb-5">
+  <% if bookings.empty? %>
+    <p><%= message %></p>
+  <% end %>
+
+  <div class="row">
+    <% bookings.each do |booking| %>
+        <div class="col m-4">
+          <div class="card-product">
+
+            <% if for_host %>
+              <img src="<%= booking.pet_photo_url %>" alt="">
+            <% else %>
+              <img src="<%= booking.place.photo_url %>" alt="">
+            <% end %>
+
+            <div class="card-product-infos">
+              <ul class="card-list">
+                <li>
+                  <p><strong>from</strong> <%= booking.booking_start_date %> to <%= booking.booking_end_date %></p>
+                  <p><strong>species:</strong> <%= booking.species %></p>
+                  <p><strong>pet description:</strong> <%= booking.pet_description %></p>
+
+                  <% if for_host && !booking.confirmed %>
+                    <%= link_to confirm_path(booking), method: 'post', class: "card-product-btn" do%>
+                      <i class="fas fa-check-circle"></i>
+                    <% end %>
+                  <% elsif !booking.confirmed %>
+                    <%= link_to booking_path(booking), method: 'delete', class: "card-product-btn" do%>
+                      <i class="far fa-window-close"></i>
+                    <% end %>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

@@ -1,14 +1,12 @@
-<!-- <ul>
-<% @places.each do |place| %>
-<li>
- <p>fullName <%= place.full_address %></p>
- <p>description <%= place.description %></p>
- </li>
-<% end %>
-</ul> -->
-
 <div class="container">
-  <h1>Some places our pets have enjoyed their stay</h1>
+  <div style="width: 60%; margin: auto;" >
+    <form action="/places" method="get" class="m-5">
+      <div style="position: relative; height: 60px;">
+        <input style="position: absolute;" class="form-control" type="text" name="query" placeholder="Search for host, full address...">
+        <input style="position: absolute; width: 20%; right: 0;" class="form-control form-btn" type="submit" value="Search">
+      </div>
+    </form>
+  </div>
 
   <div class="row">
     <% @places.each do |place| %>

@@ -1,6 +1,10 @@
 class PlacesController < ApplicationController
   def index
-    @places = Place.all
+    if params[:query].present?
+      @places = Place.search_address_host(params[:query])
+    else
+      @places = Place.all
+    end
   end
 
   def new
@@ -47,4 +51,3 @@ class PlacesController < ApplicationController
                                   :capacity, :title, :price, :user_id)
   end
 end
-

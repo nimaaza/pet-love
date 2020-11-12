@@ -1,23 +1,32 @@
+<div class="div-background" style="background-image: url(<%= asset_url('dog') %>);">
+  <div class="container mt-5 mb-5">
+    <div class="div-box">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <h1>Book <strong><%= @place.title %></strong> for your pet</h1>
-      <h2>hosted by: <strong>
-        <%= @place.user.first_name.capitalize %>
-        <%= @place.user.last_name.capitalize %>
-      </strong>
-      <i class="fas fa-heart host"></i>
-    </h2>
+          <h1 class="text-center">Do you want to book
+            <strong><%= @place.title %></strong>
+            for your pet?
+          </h1>
 
-      <%= simple_form_for @booking do |f| %>
-        <%= f.input :pet_description %>
-        <%= f.input :species %>
-        <%= f.input :pet_photo_url %>
-        <%= f.input :booking_start_date, as: :date %>
-        <%= f.input :booking_end_date, as: :date %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
-      <% end %>
+          <h2 class="mt-4 mb-4 text-center">
+            hosted with <i class="fas fa-heart host"></i> by
+            <strong>
+            <%= @place.user.first_name.capitalize %>
+            <%= @place.user.last_name.capitalize %>
+            </strong>
+          </h2>
+
+          <%= simple_form_for @booking do |f| %>
+            <%= f.input :pet_description %>
+            <%= f.input :species %>
+            <%= f.input :pet_photo_url %>
+            <%= f.input :booking_start_date, as: :date %>
+            <%= f.input :booking_end_date, as: :date %>
+            <%= f.button :submit, class: 'form-btn form-control' %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
