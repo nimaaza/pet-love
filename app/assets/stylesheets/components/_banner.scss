@@ -2,7 +2,7 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://res.cloudinary.com/dmpsphfxn/image/upload/v1605031556/pet-love/app-assets/banner_image_pbrapb.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('banner_image.jpg');
 }
 
 .banner h1 {
